@@ -14,10 +14,11 @@ const LoginCnxt = createContext({
   changePasswordHandler: () => {},
 });
 const calculateRemainingTime = (expirationTime) => {
-  const currentTime = new Date().getTime();
-  const adjustedExpirationTime = new Date(expirationTime).getTime();
+  // expirationTime is passed as string
+  const currentTime = new Date().getTime(); // to get the current time
+  const adjustedExpirationTime = new Date(expirationTime).getTime(); // expirationTime is converted to Date type
   const remaininDuration = adjustedExpirationTime - currentTime;
-  return remaininDuration;
+  return remaininDuration; // the remaining duration is returned in milliseconds
 };
 
 export const LogInContextProvider = (props) => {
